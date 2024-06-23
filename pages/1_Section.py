@@ -141,22 +141,15 @@ st.subheader('This is a subheader with a blue divider', divider='blue')
 ###############################################################################################################################
 
 
-
-
-
-
-
-
-
-col1, col2, col3 = st.columns([1,0.3,2])
+col1, col2, col3 = st.columns([1,1,1,])
 
 with col1:
-    # use st.table to display full table w/o scrolling
-    st.table(ssic_1_sl) 
+    section_filter = st.text_input('Search by Section:', '')
 
 with col2:
-    section_filter = st.text_input('Search by Section:', '')
     ssic_filter = st.text_input('Search by SSIC:', '')
+
+with col3:
     ssic_2020_title_filter = st.text_input('Search by Title Keywords:', '')
 
     # Filtering logic based on user input
@@ -174,7 +167,17 @@ with col2:
         filtered_df_ssic_2020_title = filtered_df_ssic[filtered_df_ssic['SSIC 2020 Title'].str.contains(ssic_2020_title_filter, case=False)]
     else:
         filtered_df_ssic_2020_title = filtered_df_ssic
-        
-with col3:
-    # st.write(filtered_df_ssic_2020_title, use_container_width=True)
-    st.table(filtered_df_ssic_2020_title)
+
+
+
+
+col1, col2 = st.columns([1,2])
+
+with col1:
+    st.write(ssic_1_sl, use_container_width=True)
+    # st.table(ssic_1_sl) # use st.table to display full table w/o scrolling
+
+       
+with col2:
+    st.write(filtered_df_ssic_2020_title, use_container_width=True)
+    # st.table(filtered_df_ssic_2020_title)
