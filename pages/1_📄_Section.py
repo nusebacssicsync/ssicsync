@@ -131,7 +131,7 @@ st.markdown(custom_styles, unsafe_allow_html=True)
 
 st.header('Section, 21 Categories', divider='rainbow')
 
-col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
+col1, col2, col3, col4, col5 = st.columns([2,2,1,1.5,3.5])
 
 with col1:
     st.markdown('''
