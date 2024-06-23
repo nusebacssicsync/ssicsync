@@ -141,7 +141,7 @@ st.subheader('This is a subheader with a blue divider', divider='blue')
 ###############################################################################################################################
 
 
-col1, col2, col3, col4 = st.columns([3,2,2,2])
+col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
 
 with col1:
     st.markdown('''Section Reference Table''')
