@@ -137,7 +137,7 @@ height = 90
 dim_weight = 0.6
 
 # Crop the image
-cropped_img = img.crop((0, 50, width*(1+dim_weight), height*(1+dim_weight)))
+cropped_img = img.crop((50, 50, width*(1+dim_weight), height*(1+dim_weight)))
 
 st.image(cropped_img, caption='This is an image caption', output_format='JPEG', use_column_width=True)
 st.markdown('''Happy Streamlit-ing! :balloon:''')
