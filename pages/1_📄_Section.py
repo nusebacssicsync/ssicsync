@@ -144,7 +144,7 @@ st.subheader('This is a subheader with a blue divider', divider='blue')
 col1, col2, col3, col4 = st.columns([3,2,2,2])
 
 with col1:
-    st.markdown = ('''Section Reference Table'''
+    st.markdown('''Section Reference Table''')
 
 with col2:
     section_filter = st.text_input('Search by Section:', '')
