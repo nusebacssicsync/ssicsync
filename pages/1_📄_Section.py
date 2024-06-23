@@ -135,7 +135,7 @@ col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
 
 with col1:
     st.markdown('''
-    <br>
+    <br><br>
     Section Reference Table
     ''', unsafe_allow_html=True)
 
