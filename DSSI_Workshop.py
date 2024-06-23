@@ -102,30 +102,29 @@ st.balloons()
 
 # Guide to Streamlit Text Elements - https://docs.streamlit.io/develop/api-reference/text
 
-st.markdown(
-        """
-            <style>
-                .appview-container .main .block-container {{
-                    padding-top: {padding_top}rem;
-                    padding-bottom: {padding_bottom}rem;
-                    }}
+# Define CSS styles
+custom_styles = """
+<style>
+    .appview-container .main .block-container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-                img {
-                    max-width: 100%;
-                    width: 100vw; /* Set image width to full viewport width */
-                    height: auto; /* Maintain aspect ratio */
-                    display: block; /* Remove any default space around the image */
-                    margin-left: auto;
-                    margin-right: auto;
-                }
+    img.full-width {
+        max-width: 100%;
+        width: 100vw; /* Set image width to full viewport width */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Remove any default space around the image */
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+"""
 
-            </style>""".format(
-            padding_top=1, padding_bottom=1
-        ),
-        unsafe_allow_html=True,
-    )
+# Display CSS styles using st.markdown
+st.markdown(custom_styles, unsafe_allow_html=True)
 
-st.image('background.jpg', caption='This is an image caption')
+st.image('background.jpg', caption='This is an image caption', output_format='JPEG', use_column_width=True)
 st.markdown('''Happy Streamlit-ing! :balloon:''')
 st.title('This is a _:blue[Title]_ :sunglasses:')
 st.header('This is a header with a raindow divider', divider='rainbow')
