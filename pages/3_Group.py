@@ -70,7 +70,7 @@ ssic_df = pd.merge(ssic_df, ssic_2[['Division', 'Division Title']], on='Division
 ssic_df = pd.merge(ssic_df, ssic_3[['Group', 'Group Title']], on='Group', how='left')
 ssic_df = pd.merge(ssic_df, ssic_4[['Class', 'Class Title']], on='Class', how='left')
 
-df_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+df_streamlit = ssic_df.iloc[:, [0, 1, 7, 10, 11, 12, 13]].drop_duplicates()
 ssic_1_sl = ssic_1.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_2_sl = ssic_2.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_3_sl = ssic_3.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
