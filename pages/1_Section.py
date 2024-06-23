@@ -93,8 +93,6 @@ st.set_page_config(
     layout="wide", # "wide" or "centered"
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': '''What help?''',
-        'Report a bug': '''What bug?''',
         'About': '''Explore multiclass text classification with DistilBERT on our Streamlit page. 
         Discover interactive insights and the power of modern NLP in text categorization!'''
     }
