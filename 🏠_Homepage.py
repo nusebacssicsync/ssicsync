@@ -37,15 +37,11 @@ st.image('background.jpg', caption='', output_format='JPEG', use_column_width=Tr
 st.write("## Welcome to ssicsync! 👋")
 
 st.markdown(
-    """
+    '''
     Welcome to our Streamlit page! We explore multiclass text classification using DistilBERT, <br>
     offering interactive insights into training and evaluating models for accurate text categorization. <br>
     Join us to learn and experience the power of modern NLP 🤖.
-""", unsafe_allow_html=True
+''', unsafe_allow_html=True
 )
 
 
-    st.markdown('''
-    <br><br>
-    Section Reference Table
-    ''', unsafe_allow_html=True)
