@@ -34,7 +34,7 @@ st.sidebar.success("Explore our pages above ☝️")
 
 st.image('background.jpg', caption='', output_format='JPEG', use_column_width=True)
 
-st.write("## Welcome to ssicsync! 👋")
+st.write("## Welcome to ssicsync streamlit page! 👋")
 
 st.markdown(
     '''
