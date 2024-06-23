@@ -110,6 +110,15 @@ st.markdown(
                     padding-bottom: {padding_bottom}rem;
                     }}
 
+                img {
+                    max-width: 100%;
+                    width: 100vw; /* Set image width to full viewport width */
+                    height: auto; /* Maintain aspect ratio */
+                    display: block; /* Remove any default space around the image */
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
             </style>""".format(
             padding_top=1, padding_bottom=1
         ),
