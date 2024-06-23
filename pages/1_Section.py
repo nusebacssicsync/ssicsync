@@ -130,9 +130,6 @@ custom_styles = """
 st.markdown(custom_styles, unsafe_allow_html=True)
 
 # Open the image file
-img = Image.open('background.jpg')
-
-st.image(img, caption='This is an image caption', output_format='JPEG', use_column_width=True)
 st.markdown('''Happy Streamlit-ing! :balloon:''')
 st.title('This is a _:blue[Title]_ :sunglasses:')
 st.header('This is a header with a raindow divider', divider='rainbow')
