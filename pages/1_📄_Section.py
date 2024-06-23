@@ -150,6 +150,12 @@ with col4:
 
     # Filtering logic based on user input
     if section_filter:
+        filtered_df_ref = ssic_1_sl[ssic_1_sl['Section'].str.contains(section_filter, case=False)]
+    else:
+        filtered_df_ref = ssic_1_sl
+
+
+    if section_filter:
         filtered_df_section = df_streamlit[df_streamlit['Section'].str.contains(section_filter, case=False)]
     else:
         filtered_df_section = df_streamlit
