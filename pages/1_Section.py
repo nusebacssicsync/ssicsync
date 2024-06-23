@@ -141,15 +141,18 @@ st.subheader('This is a subheader with a blue divider', divider='blue')
 ###############################################################################################################################
 
 
-col1, col2, col3 = st.columns([1,1,1,])
+col1, col2, col3, col4 = st.columns([3,2,2,2])
 
 with col1:
-    section_filter = st.text_input('Search by Section:', '')
+    st.markdown('''Section Reference Table'''
 
 with col2:
-    ssic_filter = st.text_input('Search by SSIC:', '')
+    section_filter = st.text_input('Search by Section:', '')
 
 with col3:
+    ssic_filter = st.text_input('Search by SSIC:', '')
+
+with col4:
     ssic_2020_title_filter = st.text_input('Search by Title Keywords:', '')
 
     # Filtering logic based on user input
@@ -167,8 +170,6 @@ with col3:
         filtered_df_ssic_2020_title = filtered_df_ssic[filtered_df_ssic['SSIC 2020 Title'].str.contains(ssic_2020_title_filter, case=False)]
     else:
         filtered_df_ssic_2020_title = filtered_df_ssic
-
-
 
 
 col1, col2 = st.columns([1,2])
