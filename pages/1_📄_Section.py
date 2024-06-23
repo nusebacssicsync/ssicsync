@@ -175,7 +175,7 @@ with col4:
 col1, col2 = st.columns([2,3])
 
 with col1:
-    st.write(ssic_sl, use_container_width=True)
+    st.write(filtered_df_ref, use_container_width=True)
     # st.table(ssic_sl) # use st.table to display full table w/o scrolling
 
        
