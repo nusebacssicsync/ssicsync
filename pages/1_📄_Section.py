@@ -134,7 +134,10 @@ st.header('Section, 21 Categories', divider='rainbow')
 col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
 
 with col1:
-    st.markdown('''Section Reference Table''')
+    st.markdown('''
+    <br><br><br>
+    Section Reference Table
+    ''', unsafe_allow_html=True)
 
 with col2:
     section_filter = st.text_input('Search by Section:', '')
