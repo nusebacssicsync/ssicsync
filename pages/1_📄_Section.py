@@ -77,6 +77,7 @@ ssic_3_sl = ssic_3.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_4_sl = ssic_4.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_5_sl = ssic_5.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 
+ssic_sl = ssic_1_sl
 
 ###############################################################################################################################
 ###############################################################################################################################
@@ -150,9 +151,9 @@ with col4:
 
     # Filtering logic based on user input
     if section_filter:
-        filtered_df_ref = ssic_1_sl[ssic_1_sl['Section'].str.contains(section_filter, case=False)]
+        filtered_df_ref = ssic_sl[ssic_sl['Section'].str.contains(section_filter, case=False)]
     else:
-        filtered_df_ref = ssic_1_sl
+        filtered_df_ref = ssic_sl
 
 
     if section_filter:
@@ -174,8 +175,8 @@ with col4:
 col1, col2 = st.columns([2,3])
 
 with col1:
-    st.write(ssic_1_sl, use_container_width=True)
-    # st.table(ssic_1_sl) # use st.table to display full table w/o scrolling
+    st.write(ssic_sl, use_container_width=True)
+    # st.table(ssic_sl) # use st.table to display full table w/o scrolling
 
        
 with col2:
