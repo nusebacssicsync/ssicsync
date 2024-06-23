@@ -43,12 +43,3 @@ st.markdown(
     Join us to learn and experience the power of modern NLP 🤖.
 """
 )
-
-
-
-
-
-st.markdown('''Happy Streamlit-ing! :balloon:''')
-st.title('This is a _:blue[Title]_ :sunglasses:')
-st.header('This is a header with a raindow divider', divider='rainbow')
-st.subheader('This is a subheader with a blue divider', divider='blue')
