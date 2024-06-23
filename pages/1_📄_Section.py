@@ -5,8 +5,6 @@ from sklearn import datasets
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-
 ssic_detailed_def_filename = "ssic2020-detailed-definitions.xlsx"
 ssic_alpha_index_filename = "ssic2020-alphabetical-index.xlsx"
 
@@ -70,13 +68,19 @@ ssic_df = pd.merge(ssic_df, ssic_2[['Division', 'Division Title']], on='Division
 ssic_df = pd.merge(ssic_df, ssic_3[['Group', 'Group Title']], on='Group', how='left')
 ssic_df = pd.merge(ssic_df, ssic_4[['Class', 'Class Title']], on='Class', how='left')
 
-df_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+df_1_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+df_2_streamlit = ssic_df.iloc[:, [0, 1, 6, 10, 11, 12, 13]].drop_duplicates()
+df_3_streamlit = ssic_df.iloc[:, [0, 1, 7, 10, 11, 12, 13]].drop_duplicates()
+df_4_streamlit = ssic_df.iloc[:, [0, 1, 8, 10, 11, 12, 13]].drop_duplicates()
+df_5_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+
 ssic_1_sl = ssic_1.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_2_sl = ssic_2.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_3_sl = ssic_3.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_4_sl = ssic_4.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_5_sl = ssic_5.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 
+df_streamlit = df_1_streamlit
 ssic_sl = ssic_1_sl
 
 ###############################################################################################################################
@@ -130,7 +134,7 @@ custom_styles = """
 # Display CSS styles using st.markdown
 st.markdown(custom_styles, unsafe_allow_html=True)
 
-st.header('Section, 21 Categories', divider='rainbow')
+st.header('📄 Section, 21 Categories', divider='rainbow')
 
 col1, col2, col3, col4, col5 = st.columns([3,1,1,1.5,3.5])
 

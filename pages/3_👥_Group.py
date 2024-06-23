@@ -5,8 +5,6 @@ from sklearn import datasets
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-
 ssic_detailed_def_filename = "ssic2020-detailed-definitions.xlsx"
 ssic_alpha_index_filename = "ssic2020-alphabetical-index.xlsx"
 
@@ -70,13 +68,20 @@ ssic_df = pd.merge(ssic_df, ssic_2[['Division', 'Division Title']], on='Division
 ssic_df = pd.merge(ssic_df, ssic_3[['Group', 'Group Title']], on='Group', how='left')
 ssic_df = pd.merge(ssic_df, ssic_4[['Class', 'Class Title']], on='Class', how='left')
 
-df_streamlit = ssic_df.iloc[:, [0, 1, 7, 10, 11, 12, 13]].drop_duplicates()
+df_1_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+df_2_streamlit = ssic_df.iloc[:, [0, 1, 6, 10, 11, 12, 13]].drop_duplicates()
+df_3_streamlit = ssic_df.iloc[:, [0, 1, 7, 10, 11, 12, 13]].drop_duplicates()
+df_4_streamlit = ssic_df.iloc[:, [0, 1, 8, 10, 11, 12, 13]].drop_duplicates()
+df_5_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
+
 ssic_1_sl = ssic_1.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_2_sl = ssic_2.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_3_sl = ssic_3.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_4_sl = ssic_4.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 ssic_5_sl = ssic_5.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 
+df_streamlit = df_3_streamlit
+ssic_sl = ssic_3_sl
 
 ###############################################################################################################################
 ###############################################################################################################################
@@ -93,7 +98,8 @@ st.set_page_config(
     layout="wide", # "wide" or "centered"
     initial_sidebar_state="expanded",
     menu_items={
-        'About': "# This is a header. This is an *extremely* cool app!"
+        'About': '''Explore multiclass text classification with DistilBERT on our Streamlit page. 
+        Discover interactive insights and the power of modern NLP in text categorization!'''
     }
 )
 
@@ -128,37 +134,31 @@ custom_styles = """
 # Display CSS styles using st.markdown
 st.markdown(custom_styles, unsafe_allow_html=True)
 
-# Open the image file
-st.markdown('''Happy Streamlit-ing! :balloon:''')
-st.title('This is a _:blue[Title]_ :sunglasses:')
-st.header('This is a header with a raindow divider', divider='rainbow')
-st.subheader('This is a subheader with a blue divider', divider='blue')
+st.header('👥 Group, 204 Categories', divider='rainbow')
 
-
-###############################################################################################################################
-###############################################################################################################################
-###############################################################################################################################
-
-
-
-
-
-
-
-
-
-col1, col2, col3 = st.columns([1,0.3,2])
+col1, col2, col3, col4, col5 = st.columns([3,1,1,1.5,3.5])
 
 with col1:
-    # use st.table to display full table w/o scrolling
-    st.table(ssic_3_sl) 
+    st.markdown('''
+    <br><br>
+    Group Reference Table
+    ''', unsafe_allow_html=True)
 
 with col2:
     section_filter = st.text_input('Search by Group:', '')
+
+with col3:
     ssic_filter = st.text_input('Search by SSIC:', '')
+
+with col4:
     ssic_2020_title_filter = st.text_input('Search by Title Keywords:', '')
 
     # Filtering logic based on user input
+    if section_filter:
+        filtered_df_ref = ssic_sl[ssic_sl['Group'].str.contains(section_filter, case=False)]
+    else:
+        filtered_df_ref = ssic_sl
+
     if section_filter:
         filtered_df_section = df_streamlit[df_streamlit['Group'].str.contains(section_filter, case=False)]
     else:
@@ -173,7 +173,15 @@ with col2:
         filtered_df_ssic_2020_title = filtered_df_ssic[filtered_df_ssic['SSIC 2020 Title'].str.contains(ssic_2020_title_filter, case=False)]
     else:
         filtered_df_ssic_2020_title = filtered_df_ssic
-        
-with col3:
-    # st.write(filtered_df_ssic_2020_title, use_container_width=True)
-    st.table(filtered_df_ssic_2020_title)
+
+
+col1, col2 = st.columns([2,3])
+
+with col1:
+    st.write(filtered_df_ref, use_container_width=True)
+    # st.table(ssic_sl) # use st.table to display full table w/o scrolling
+
+       
+with col2:
+    st.write(filtered_df_ssic_2020_title, use_container_width=True)
+    # st.table(filtered_df_ssic_2020_title)
