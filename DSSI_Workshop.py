@@ -110,18 +110,21 @@ custom_styles = """
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
-
-
 </style>
 """
-    # img.full-width {
-    #     max-width: 100%;
-    #     width: 100vw; /* Set image width to full viewport width */
-    #     height: auto; /* Maintain aspect ratio */
-    #     display: block; /* Remove any default space around the image */
-    #     margin-left: auto;
-    #     margin-right: auto;
-    # }
+def set_background_image_style(background_image):
+    style = f"""
+    <style>
+    body {{
+        background-image: url("{background_image}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh; /* Set the height to full viewport height */
+    }}
+    </style>
+    """
+    return style
 
 # Display CSS styles using st.markdown
 st.markdown(custom_styles, unsafe_allow_html=True)
@@ -140,6 +143,9 @@ dim_weight = 0.6
 cropped_img = img.crop((0, 0, width*(1+dim_weight), height*(1+dim_weight)))
 
 st.image(cropped_img, caption='This is an image caption', output_format='JPEG', use_column_width=True)
+st.markdown(set_background_image_style(background_image_path), unsafe_allow_html=True)
+
+
 st.markdown('''Happy Streamlit-ing! :balloon:''')
 st.title('This is a _:blue[Title]_ :sunglasses:')
 st.header('This is a header with a raindow divider', divider='rainbow')
