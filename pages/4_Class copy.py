@@ -72,6 +72,10 @@ ssic_df = pd.merge(ssic_df, ssic_4[['Class', 'Class Title']], on='Class', how='l
 
 df_streamlit = ssic_df.iloc[:, [0, 1, 9, 10, 11, 12, 13]].drop_duplicates()
 ssic_1_sl = ssic_1.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
+ssic_2_sl = ssic_2.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
+ssic_3_sl = ssic_3.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
+ssic_4_sl = ssic_4.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
+ssic_5_sl = ssic_5.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 
 
 ###############################################################################################################################
@@ -152,16 +156,16 @@ col1, col2, col3 = st.columns([1,0.3,2])
 
 with col1:
     # use st.table to display full table w/o scrolling
-    st.table(ssic_1_sl) 
+    st.table(ssic_4_sl) 
 
 with col2:
-    section_filter = st.text_input('Search by Section:', '')
+    section_filter = st.text_input('Search by Class:', '')
     ssic_filter = st.text_input('Search by SSIC:', '')
     ssic_2020_title_filter = st.text_input('Search by Title Keywords:', '')
 
     # Filtering logic based on user input
     if section_filter:
-        filtered_df_section = df_streamlit[df_streamlit['Section'].str.contains(section_filter, case=False)]
+        filtered_df_section = df_streamlit[df_streamlit['Class'].str.contains(section_filter, case=False)]
     else:
         filtered_df_section = df_streamlit
 
