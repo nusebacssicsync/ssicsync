@@ -162,7 +162,7 @@ with col4:
         filtered_df_ssic_2020_title = filtered_df_ssic
 
 
-col1, col2 = st.columns([1,2])
+col1, col2 = st.columns([2,3])
 
 with col1:
     st.write(ssic_1_sl, use_container_width=True)
