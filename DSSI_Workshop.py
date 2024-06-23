@@ -80,6 +80,7 @@ ssic_1_sl = ssic_1.iloc[:, [0, 1]].drop_duplicates().reset_index(drop=True)
 # Streamlit Page UI Config
 
 import streamlit as st
+from PIL import Image
 
 # Set page config
 st.set_page_config(
@@ -125,7 +126,17 @@ custom_styles = """
 # Display CSS styles using st.markdown
 st.markdown(custom_styles, unsafe_allow_html=True)
 
-st.image('background.jpg', caption='This is an image caption', output_format='JPEG', use_column_width=True)
+# Open the image file
+img = Image.open('background.jpg')
+
+# Define dimensions for cropping
+width = 728
+height = 90
+
+# Crop the image
+cropped_img = img.crop((0, 0, width, height))
+
+st.image(cropped_img, caption='This is an image caption', output_format='JPEG', use_column_width=True)
 st.markdown('''Happy Streamlit-ing! :balloon:''')
 st.title('This is a _:blue[Title]_ :sunglasses:')
 st.header('This is a header with a raindow divider', divider='rainbow')
