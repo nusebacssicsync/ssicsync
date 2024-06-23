@@ -133,8 +133,11 @@ img = Image.open('background.jpg')
 width = 728
 height = 90
 
+# Define dimension weight
+dim_weight = 0.6
+
 # Crop the image
-cropped_img = img.crop((0, 0, width, height))
+cropped_img = img.crop((0, 0, width*(1+dim_weight), height*(1+dim_weight)))
 
 st.image(cropped_img, caption='This is an image caption', output_format='JPEG', use_column_width=True)
 st.markdown('''Happy Streamlit-ing! :balloon:''')
