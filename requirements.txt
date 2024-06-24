@@ -1,4 +1,14 @@
 streamlit==1.36.0
+
+aiohttp!=4.0.0a0, !=4.0.0a1
+decorator>4.1.2
+fsspec==2024.6.0
+google-auth>=1.2
+google-auth-oauthlib
+google-cloud-storage
+requests
+
+st-files-connection
 Pillow==10.3.0
 scipy==1.13.1
 pandas==2.2.2
