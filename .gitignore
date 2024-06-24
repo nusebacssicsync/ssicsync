@@ -48,3 +48,4 @@ venv.bak/
 # Files to ignore
 .streamlit/secrets.toml
 .secrets.toml
+*.toml
